@@ -13,16 +13,16 @@ public class PortalApplication {
 
 	private final static Logger logger = LoggerFactory.getLogger(PortalApplication.class);
 
-	@Value("${spring.ai.openai.api-key}")
-	String apiKey;
+//	@Value("${spring.ai.openai.api-key}")
+//	String apiKey;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PortalApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner() {
-		return args -> logger.info("open ai api-key : {}", apiKey);
-	}
+//	@Bean
+//	public CommandLineRunner commandLineRunner() {
+//		return args -> logger.info("open ai api-key : {}", apiKey);
+//	}
 
 }
