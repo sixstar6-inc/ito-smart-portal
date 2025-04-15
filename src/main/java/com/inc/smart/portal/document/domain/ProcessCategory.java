@@ -6,6 +6,9 @@ import com.inc.smart.portal.document.domain.enums.TopMenuConvert;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * [1 Depth]
@@ -13,6 +16,9 @@ import jakarta.persistence.Table;
  * 예) "사전단계", "프로젝트 발의"
  * 각 카테고리는 여러 개의 산출물 유형(DeliverableType)을 포함할 수 있습니다.
  */
+@ToString
+@Getter
+@NoArgsConstructor
 @Table(name = "TB_PROCESS_CATEGORY")
 @Entity
 public class ProcessCategory extends NamedEntity {
@@ -22,36 +28,10 @@ public class ProcessCategory extends NamedEntity {
     @Convert(converter = TopMenuConvert.class)
     private TopMenu topMenu;
 
-    public ProcessCategory(){
-    }
-
     public ProcessCategory(String name, String iconClass, TopMenu topMenu) {
         setName(name);
         this.iconClass = iconClass;
         this.topMenu = topMenu;
     }
 
-    public String getIconClass() {
-        return iconClass;
-    }
-
-    public TopMenu getTopMenu() {
-        return topMenu;
-    }
-
-    public void setIconClass(String iconClass) {
-        this.iconClass = iconClass;
-    }
-
-    public void setTopMenu(TopMenu topMenu) {
-        this.topMenu = topMenu;
-    }
-
-    @Override
-    public String toString() {
-        return "ProcessCategory{" +
-                "iconClass='" + iconClass + '\'' +
-                ", topMenu=" + topMenu +
-                '}';
-    }
 }

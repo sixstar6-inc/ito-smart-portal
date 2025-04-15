@@ -1,5 +1,7 @@
 package com.inc.smart.portal.document.domain.enums;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -7,6 +9,7 @@ import java.util.stream.Collectors;
 /**
  * Deliverable Document 의 문서 유형 정의
  */
+@Getter
 public enum DocumentType  {
     // 지침서
     GUIDE("지침서"),
@@ -33,10 +36,6 @@ public enum DocumentType  {
     public static Map<String, String> toMap() {
         return Arrays.stream(DocumentType.values())
                 .collect(Collectors.toMap(DocumentType::name, DocumentType::getDescription));
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public boolean equalsType(DocumentType other) {
