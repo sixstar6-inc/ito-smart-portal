@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Deliverable Document 의 문서 유형 정의
+ */
 public enum DocumentType  {
     // 지침서
     GUIDE("지침서"),
