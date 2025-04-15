@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Top Menu 구분 (가장 최상위 프로세스 단계 정의 )
+ */
 public enum TopMenu {
     PLANNING(1,"프로젝트 계획"),
     PROGRESS(2,"프로젝트 수행"),
