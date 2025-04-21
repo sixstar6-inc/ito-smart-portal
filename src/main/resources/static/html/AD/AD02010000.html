@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <title>[ DB Inc | DB FIS ] DB ITO 지식 포탈</title>
+
+    <link rel="stylesheet" href="../../resources/css/selectric.css">
+    <link rel="stylesheet" href="../../resources/css/ito.css">
+
+    <script src="../../resources/js/jquery-3.7.1.min.js"></script>
+    <script src="../../resources/js/jquery.selectric.min.js"></script>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <span id="skipNav" class="skip-nav">
+            <a href="#contents">본문 바로가기</a>
+            <a href="#gnb">대메뉴 바로가기</a>
+            <a href="#aside">부가메뉴 바로가기</a>
+        </span>
+        <header>
+            <h1><img src="../../resources/images/logo/logo-ito-adm.png" alt="[DB Inc. DB FIS] DB ITO 지식포탈" /></h1><!-- 240820 변경 -->
+            <nav id="gnb" class="gnb">
+                <ul>
+                    <li class="on"><a href="#">프로젝트 계획</a></li>
+                    <li><a href="#">프로젝트 수행</a></li>
+                    <li><a href="#">운영</a></li>
+                    <li><a href="#">유지보수</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="wrap" class="wrap">
+            <!-- 프로젝트 계획 -->
+            <aside id="aside" class="aside">
+                <h2>프로젝트 계획<br>[착수 PMO]</h2>
+                <nav>
+                    <ul>
+                        <li class="on"><a href="#"><i class="i-aside nav0101"></i>사전단계</a></li>
+                        <li><a href="#"><i class="i-aside nav0102"></i>프로젝트 발의</a></li>
+                        <li><a href="#"><i class="i-aside nav0103"></i>요구사항(RFP) 확정</a></li>
+                        <li><a href="#"><i class="i-aside nav0104"></i>투자심의/의결</a></li>
+                        <li><a href="#"><i class="i-aside nav0105"></i>구매(총무)</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- contents -->
+            <div id="contents" class="contents">
+                <h3 class="content-title">
+                    <i class="i-25 green-r-arrow"></i>완료팝업
+                    <div class="btn-wrap">
+                        <button type="button" class="btn primary" onclick="openModal('dialog01')">등록</button>
+                        <button type="button" class="btn primary" onclick="openModal('dialog02')">수정</button>
+                        <button type="button" class="btn primary" onclick="openModal('dialog03')">삭제</button>
+                        <button type="button" class="btn primary" onclick="openModal('dialog04')">오류</button>
+                    </div>
+                </h3>
+                <div class="table-error">
+                    <img src="../../resources/images/common/ico-info-error.png" alt="오류아이콘">
+                    <p>
+                        죄송합니다.<br/>
+                        요청하신 페이지에 오류가 발생하였습니다.<br/>
+                        다시 시도해주세요.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 등록하기 완료팝업 -->
+    <dialog id="dialog01" class="dialog-md" aria-labelledby="dialogTitle" aria-describedby="dialogGuide01">
+        <form action="" method="dialog">
+            <div class="header">
+                <button type="button" class="dialog-close" autofocus>닫기</button>
+                <h1 id="dialogTitle">등록하기</h1>
+            </div>
+            <div class="body">
+                <!-- 
+                    id="dialogGuide01"
+                    등록아이콘 : ico-info-confirm
+                    수정아이콘 : ico-info-modify
+                    삭제아이콘 : ico-info-delete
+                    에러아이콘 : ico-info-error
+                 -->
+                <p id="dialogGuide01" class="result-area">
+                    <img src="../../resources/images/common/ico-info-confirm.png" alt="등록아이콘">
+                    <strong>등록이 완료되었습니다.</strong>
+                </p>
+            </div>
+            <div class="footer">
+                <div class="btn-area">
+                    <button type="button" class="btn normal dialog-close">닫기</button>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    <!-- //등록하기 완료팝업 -->
+
+    <!-- 수정하기 완료팝업 -->
+    <dialog id="dialog02" class="dialog-md" aria-labelledby="dialogTitle" aria-describedby="dialogGuide02">
+        <form action="" method="dialog">
+            <div class="header">
+                <button type="button" class="dialog-close" autofocus>닫기</button>
+                <h1 id="dialogTitle">수정하기</h1>
+            </div>
+            <div class="body">
+                <!-- 
+                    id="dialogGuide02"
+                    등록아이콘 : ico-info-confirm
+                    수정아이콘 : ico-info-modify
+                    삭제아이콘 : ico-info-delete
+                    에러아이콘 : ico-info-error
+                 -->
+                <p id="dialogGuide02" class="result-area">
+                    <img src="../../resources/images/common/ico-info-modify.png" alt="수정아이콘">
+                    <strong>수정이 완료되었습니다.</strong>
+                </p>
+            </div>
+            <div class="footer">
+                <div class="btn-area">
+                    <button type="button" class="btn normal dialog-close">닫기</button>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    <!-- //수정하기 완료팝업 -->
+
+    <!-- 삭제하기 완료팝업 -->
+    <dialog id="dialog03" class="dialog-md" aria-labelledby="dialogTitle" aria-describedby="dialogGuide03">
+        <form action="" method="dialog">
+            <div class="header">
+                <button type="button" class="dialog-close" autofocus>닫기</button>
+                <h1 id="dialogTitle">삭제하기</h1>
+            </div>
+            <div class="body">
+                <!-- 
+                    id="dialogGuide03"
+                    등록아이콘 : ico-info-confirm
+                    수정아이콘 : ico-info-modify
+                    삭제아이콘 : ico-info-delete
+                    에러아이콘 : ico-info-error
+                 -->
+                <p id="dialogGuide03" class="result-area">
+                    <img src="../../resources/images/common/ico-info-delete.png" alt="삭제아이콘">
+                    <strong>삭제가 완료되었습니다.</strong>
+                </p>
+            </div>
+            <div class="footer">
+                <div class="btn-area">
+                    <button type="button" class="btn normal dialog-close">닫기</button>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    <!-- //삭제하기 완료팝업 -->
+
+    <!-- 오류팝업 -->
+    <dialog id="dialog04" class="dialog-md" aria-labelledby="dialogTitle" aria-describedby="dialogGuide04">
+        <form action="" method="dialog">
+            <div class="header">
+                <button type="button" class="dialog-close" autofocus>닫기</button>
+                <h1 id="dialogTitle">삭제하기</h1>
+            </div>
+            <div class="body">
+                <!-- 
+                    id="dialogGuide04"
+                    등록아이콘 : ico-info-confirm
+                    수정아이콘 : ico-info-modify
+                    삭제아이콘 : ico-info-delete
+                    에러아이콘 : ico-info-error
+                 -->
+                <p id="dialogGuide04" class="result-area">
+                    <img src="../../resources/images/common/ico-info-error.png" alt="에러아이콘">
+                    <strong>
+                        죄송합니다.<br/>
+                        요청하신 페이지에 오류가 발생하였습니다.<br/>
+                        다시 시도해주세요.
+                    </strong>
+                </p>
+            </div>
+            <div class="footer">
+                <div class="btn-area">
+                    <button type="button" class="btn normal dialog-close">닫기</button>
+                </div>
+            </div>
+        </form>
+    </dialog>
+    <!-- //오류팝업 -->
+
+    <script>
+        // modal open
+        function openModal(ele) {
+            const tg = `#${ele}`;
+            const $tg = document.querySelector(tg);
+            $tg.showModal();
+        }
+        // modal close
+        const closeBtn = document.querySelectorAll('.dialog-close');
+        closeBtn.forEach((el) => {
+            el.addEventListener('click', () => {
+                el.closest('dialog').close();
+            })
+        })
+        // select
+        $('select').selectric({
+            maxHeight: 160, // 40*X
+        });
+    </script>
+</body>
+</html>

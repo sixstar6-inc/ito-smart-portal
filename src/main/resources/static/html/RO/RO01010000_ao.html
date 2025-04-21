@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <title>[ DB Inc | DB FIS ] DB ITO 지식 포탈</title>
+
+    <link rel="stylesheet" href="../../resources/css/selectric.css">
+    <link rel="stylesheet" href="../../resources/css/ito.css">
+
+    <script src="../../resources/js/jquery-3.7.1.min.js"></script>
+    <script src="../../resources/js/jquery.selectric.min.js"></script>
+
+    <style>
+        .roadmaps {
+            display: flex;
+        }
+        .roadmaps.push .items {
+            min-width: 100%;
+        }
+        .roadmaps.push .items:first-child {
+            width: 200px;
+            flex-shrink: 0;
+        }
+        .roadmaps.pull {
+            padding-left: 200px;
+            flex-wrap: wrap;
+        }
+        .roadmaps.pull .items {
+            flex-grow: 1;
+            width: auto;
+            min-width: 220px;
+        }
+        .mapping {
+            background-color: wheat;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        .details {
+            border: 1px solid #000;
+        }
+        .items {
+            width: 100%;
+            max-width: 220px;
+        }
+        .items:first-child .mapping {
+            background-color: orange;
+        }
+        a, span {
+            display: block;
+        }
+        .yellow {
+            color: tan;
+        }
+        .blue {
+            color: blue;
+        }
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+        <span id="skipNav" class="skip-nav">
+            <a href="#contents">본문 바로가기</a>
+            <a href="#gnb">대메뉴 바로가기</a>
+            <a href="#aside">부가메뉴 바로가기</a>
+        </span>
+        <header>
+            <h1><img src="../../resources/images/logo/logo-ito-adm.png" alt="[DB Inc. DB FIS] DB ITO 지식포탈" /></h1><!-- 240820 변경 -->
+            <nav id="gnb" class="gnb">
+                <ul>
+                    <li class="on"><a href="#">프로젝트 계획</a></li>
+                    <li><a href="#">프로젝트 수행</a></li>
+                    <li><a href="#">운영</a></li>
+                    <li><a href="#">유지보수</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="wrap" class="wrap">
+
+            <!-- contents -->
+            <div id="contents" class="contents">
+                <h3 class="content-title">
+                    <i class="i-25 green-r-arrow"></i>로드맵(AO)
+                </h3>
+                
+                <div class="roadmaps"><!-- 첫째줄(계획) -->
+                    <div class="items"><!-- FOR문 영역 -->
+                        <div class="mapping">계획</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">사전단계</div>
+                        <div class="details">
+                            <!-- a or span 선택가능 -->
+                            <!-- class로 색상구분가능 기본컬러 black -->
+                            <a href="javascript:void(0);" target="_blank">과제구체화</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">IT프로젝트 검토요청서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">제안요청서</a>
+                            <a href="javascript:void(0);" target="_blank">장표검토 품질검토회의</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">프로젝트 발의</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">컨센서스 미팅</a>
+                            <a href="javascript:void(0);" target="_blank">요구사항구체화</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">현업요구사항정의서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">제안요청서(RFP)초안</a>
+                            <a href="javascript:void(0);" target="_blank">기술검토/제안요청서 보완</a>
+                            <a href="javascript:void(0);" target="_blank">BMT/POC 추진(필요시)</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">시나리오 및 평가서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">수행계획서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">항목별 시나리오</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">평가기준 작성</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">BMT준수서약서<</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">보안서약서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">BMT/POC 결과보고서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">요구사항(RFP) 확정</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank">실무협의회 개발 요구사항확정</a>
+	                        <a href="javascript:void(0);" target="_blank">규모산정</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">추정 가격조서 작성</a>
+	                        <a href="javascript:void(0);" target="_blank">투자사무국 협의</a>
+	                        <a href="javascript:void(0);" target="_blank">실무협의회 결과품의</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">제안요청서(RFP) 최종확정</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">투자심의/의결</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">IT실무위원회/IT운영위원회</a>
+                            <a href="javascript:void(0);" target="_blank" class="blue">ITP-12-00 IT실무위원회 지침</a>
+                            <a href="javascript:void(0);" target="_blank">현업추진품의</a>
+                            <a href="javascript:void(0);" target="_blank" class="blue">ITP-12-00 IT실무위원회 지침</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">구매(총무)</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">제안접수/업체선정/계약</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">업체제안서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">WBS</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">인력투입명세서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">물품명세서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">PM</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmaps"><!-- 둘째줄(수행) -->
+                    <div class="items">
+                        <div class="mapping">수행</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">계획</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank">계획</a>
+	                        <a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">프로젝트_수행_준비_가이드</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">계정등록권한부여 및 승인 가이드</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">IT프로젝트 프로세스(현업 안내자료)</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">프로젝트수행계획서</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">프로젝트 WBS</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">품질보증활동 계획서</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">주간/월간보고서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">분석</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank">분석</a>
+	                        <a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">요구사항 정의서</a>
+						</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">설계</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank">설계</a>
+	                        <a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">TO-BE 기능설계서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">메뉴구조도</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">UI목록, UI 설계서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">대내/외 인터페이스목록</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">대내/외 인터페이스 설계서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">논리/물리 ERD </a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">테이블목록</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">테이블 기술서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">프로그램(서비스) 목록</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">프로그램(서비스) 명세서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">배치 프로그램 정의서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">배치 JOB 흐름도</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">시스템테스트 계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">보안성심의 체크리스트(사전조사)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">인프라 구축 계획</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">중간 보고서(대형프로젝트 限)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">(품질실사산출물) 품질보증활동 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">(품질실사산출물) 산출물시정계획 및 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">(품질실사산출물) SW개발방법론 품질체크리스트</a>
+						</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">구현</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank">구현</a>
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">테스트통합관리계획서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">단위테스트 결과서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">통합테스트 시나리오</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">테스트</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank">테스트</a>
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">통합테스트 결과서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">시스템테스트 결과서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">테스트결함관리 및 조치 결과서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">보안성심의 체크리스트 확인서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">인프라 구축 결과서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">이행 및 안정화</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">이행</a>
+                            <a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">이행 계획서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">시스템 오픈 사전보고서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">운영계품질기준 점검 결과서</a>
+                            <a href="javascript:void(0);" target="_blank">안정화</a>
+                            <a href="javascript:void(0);" target="_blank" class="blue">ITP-20-00 프로젝트관리지침</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">사용자 매뉴얼</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">운영자 매뉴얼</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">요구사항추적표</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">인수인계활동결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">(품질실사산출물) 품질보증활동 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">(품질실사산출물) 산출물시정계획 및 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">(품질실사산출물) SW개발방법론 품질체크리스트</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">인수</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">인수승인</a>
+                            <a href="javascript:void(0);" target="_blank" class="blue">ITP-22-00 프로젝트관리지침</a>
+                            <a href="javascript:void(0);" target="_blank" class="green">ITP-22-01 시스템인수절차서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">시스템인수기준서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">인계계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">Product 품질평가결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">시스템인수평가결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">시스템인수승인서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">QA 실사 보고서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">검수</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">검수</a>
+                            <a href="javascript:void(0);" target="_blank" class="blue">ITP-22-00 프로젝트관리지침</a>
+                            <a href="javascript:void(0);" target="_blank" class="green">ITP-22-01 시스템인수절차서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">검수확인서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">완료보고서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">설치확인서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">라이선스 인증서</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmaps push"><!-- 셋째줄(운영)윗줄 : 운영,유지보수의 경우 push 클래스 추가 -->
+                    <div class="items">
+                        <div class="mapping">운영</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">ITO프로세스</div>
+                    </div>
+                </div>
+                <div class="roadmaps pull"><!-- 셋째줄(운영)아랫줄 -->
+                    <div class="items">
+                        <div class="mapping">장애</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank" class="blue">ITP-35-00 장애관리지침</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">장애관리절차서</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">장애대응 프로세스</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">장애등급 산정 기준</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">장애보고서 (향후대책 포함)</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">장애 관리 대장</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">(추가)서비스요청</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank" class="blue">ITP-30-00 요청이행지침</a>
+	                        <a href="javascript:void(0);" target="_blank" class="green">ITP-30-01 일괄작업요청절차서</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">서비스 요청서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">시스템개발변경</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">데이터 변경</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">데이터 추출</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">인프라 작업 요청</a>
+						</div>
+                        
+                    </div>
+                    <div class="items">
+                        <div class="mapping">(추가)검증및테스트</div>
+                        <div class="details">
+	                        <a href="javascript:void(0);" target="_blank" class="blue">ITP-34-00 검증및테스트지침</a>
+	                        <a href="javascript:void(0);" target="_blank" class="yellow">현업전문가테스트 요청서(시나리오, 케이스 포함)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">현업전문가테스트 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">통합테스트 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">사용자테스트 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">변경영향분석 테스트 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">Peer Review 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">CSR 성능 테스트 계획서/결과서</a>
+						</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">문제</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-37-00 문제관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">문제관리 대장(장애, 취약점, 예방, 개선)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">문제 정의서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">문제 결과서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">변경(분석/설계/개발)</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-31-00 변경관리지침(어플리케이션)</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">클래스정의서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">변경계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">모델설계서(ERD)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">테이블 목록</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">테이블설계서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">CAB 회의록</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">이행</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-42-00 이행관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="green">이행 시간표</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">이행 요청서(정기, 긴급, 사후, 지정일, 롤백, 동시배포)</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">이행 사후보고서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">구성</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-34-00 구성관리지침(어플리케이션)</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">CI 정의서(등록)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">어플리케이션 - PGM, 테이블</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">프로그램 목록</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">구성감사계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">구성감사결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">구성감사 시정조치 계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">구성감사 시정조치 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">자원폐쇄 활동 계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">자원폐쇄 활동 결과서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">IT자원 현황(월간)</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">용량</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-45-00 용량관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">성능관리 협의체 회의록</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">가용성</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">ITP-43-00 가용성관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">Heavy TR 개선 계획서</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">Heavy TR 개선 결과서</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">연속성</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">IPT-44-00 IT연속성관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">재해복구 계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">재해복구 모의훈련 계획서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">재해복구 모의훈련 결과보고서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">재해복구 훈련 시나리오(업무별)</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">보안관리</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="blue">정보보호관리지침</a>
+							<a href="javascript:void(0);" target="_blank" class="blue">단말기보안관리지침</a>
+							<a href="javascript:void(0);" target="_blank" class="blue">서버보안관리지침</a>
+							<a href="javascript:void(0);" target="_blank" class="blue">데이터베이스보안관리지침</a>
+							<a href="javascript:void(0);" target="_blank" class="blue">네트워크보안관리지침</a>
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">정보보호 관련 증적자료(총 9총, 매월)</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">소스코드 취약점 조치</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">개인정보 암호화 보관</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">월간 사무실 보안점검</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">입/퇴사시 정보보호 절차 준수</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">정보자산 목록 최신화</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">정보시스템 계정 및 권한 검토</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">중요단말기 현황 관리</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">개인정보접속기록 보관 및 검토</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">일일 보안점검 체크리스트</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">긴급접속 단말기 현황 관리(사용 목적 조사, 매월)</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">감리/감사 대응</div>
+                        <div class="details">
+                        	<a href="javascript:void(0);" target="_blank" class="yellow">배치 오류 보고 적정성 검토</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">정보처리요청서 내용 적정성 검토</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">CAB 회의 적정성 검토</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">사후이행 보고 내용 적정성 검토</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">배치 작업 요청 프로세스 적정성 검토(인프라 작업요청)</a>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">SLM(서비스수준관리)</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank" class="blue">INA_FSM0001_서비스수준관리지침</a>
+                            <a href="javascript:void(0);" target="_blank" class="green">서비스카탈로그관리절차서</a>
+                            <a href="javascript:void(0);" target="_blank" class="green">비즈니스관계관리절차서</a>
+                            <a href="javascript:void(0);" target="_blank" class="green">위험관리절차서</a>
+                            <a href="javascript:void(0);" target="_blank" class="yellow">SLA 월간 보고서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">서비스수준 합의서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">서비스수준 규정서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">이슈관리 대장</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">상/하반기 전략회의 보고자료(성과/반성)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmaps"><!-- 넷째줄(유지보수) -->
+                    <div class="items">
+                        <div class="mapping">유지보수</div>
+                    </div>
+                    <div class="items">
+                        <div class="mapping">통합/개별 유지보수</div>
+                        <div class="details">
+                            <a href="javascript:void(0);" target="_blank">유지보수 계약</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">검토의견서</a>
+							<a href="javascript:void(0);" target="_blank">유지보수 해지</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">계약해지 요청서</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">검토의견서</a>
+							<a href="javascript:void(0);" target="_blank">유지보수 정기 점검</a>
+							<a href="javascript:void(0);" target="_blank" class="yellow">정기점검 보고서</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

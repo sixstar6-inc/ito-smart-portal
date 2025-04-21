@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markup List</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        :root { --default-color: #222; --table-border-color: #e2e3eb; --table-hover-color: #d8ffec; }
+        html, body { height: 100%; font-size: 11px; overflow-x: auto; font-family: 'Malgun Gothic', 'MS Gothic', Arial, sans-serif; }
+        ul, li { list-style: none; }
+        a { text-decoration: none; color: var(--default-color); }
+        h1 { font-size: 26px; font-weight: bold; color: #406253;}
+        h2 { position: relative; font-size: 16px; padding-left: 20px; margin-left: 10px; }
+        h2::after { position: absolute; content: '*'; left: 4px; }
+        .markup-list { position: relative; min-width: 900px; overflow-x: auto; padding: 20px 30px; }
+        .head { display: flex; justify-content: space-between; padding: 30px 15px;}
+        .body {position: relative;}
+        .body + .body { margin-top: 50px; }
+        .status { display: flex; justify-content: space-between; font-size: 13px; }
+        .status li {margin-left: 10px;}
+        .date {text-align: right; margin-top: 8px;}
+        .tbl-wrp { margin-top: 10px; }
+        table { width: 100%; table-layout: fixed; border-collapse: collapse; border: 1px solid var(--table-border-color); text-align: center; }
+        table thead th { color: #fff; background-color: #406253; }
+        table th { padding-top: 10px; padding-bottom: 10px; }
+        table td { padding: 5px; border-left: 1px solid var(--table-border-color); border-top: 1px solid var(--table-border-color); }
+        table tr td:first-child { border-left: none; }
+        table tbody { border-bottom: 2px solid #c8c8c8;}
+        table tbody:last-child { border-bottom: none;}
+        table tbody tr:hover { background-color: var(--table-hover-color); }
+        table a {font-weight: bold;}
+        table a:hover { text-decoration: underline; }
+        table a:focus { color: #00854A; }
+        .num { color: #00854A; }
+        .type, .link, .state, .num { font-weight: bold; }
+        .type, .worker, .state, .end-date { width: 8%; }
+        .etc { width: 20%; }
+        em { display: inline-block; width: 18px; height: 18px; border-radius: 3px; color: #fff; text-transform: uppercase; font-style: normal; line-height: 18px; }
+        em.ing { background-color: #94d14d; }
+        em.comp { background-color: #00854A; }
+        em.modi { background-color: #9c27b0; }
+        em.del { background-color: #9e9e9e; }
+        .state-wrap {position: absolute; right: 0; top: 0; text-align: center;}
+        .state-wrap em {width: auto; padding: 0 4px;}
+    </style>
+</head>
+<body>
+    <div class="markup-list">
+        <div class="head">
+            <h1><img src="./resources/images/logo/logo-ito.png" alt="[DB Inc. DB FIS] DB ITO 지식포탈" /><br>마크업리스트</h1>
+            <div>
+                <ul class="status">
+                    <li class="total">Total : <span class="num">0</span>개</li>
+                    <li class="complete">Complete : <span class="num">0</span>개 / </li>
+                    <li class="percent">Status : <span class="num">0</span>%</li>
+                </ul>
+                <ul class="date">
+                    <li>1차 일정 : <strong>2023.00.00 ~ 2023.00.00</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 메인 -->
+        <div class="body">
+            <h2>메인</h2>            
+            <div class="state-wrap">
+                <em class="ing">진행</em>
+                <em class="modi">수정</em>
+                <em class="comp">완료</em>
+                <em class="del">삭제</em>
+                <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+            </div>
+            <table class="tbl-wrp">
+                <thead>
+                    <tr>
+                        <th class="folder">Folder</th><!-- 폴더명 : 그룹으로 최상단에 1번만 입력 -->
+                        <th class="dep1">1Depth</th>
+                        <th class="dep2">2Depth</th>
+                        <th class="dep3">3Depth</th>
+                        <th class="dep4">4Depth</th>
+                        <th class="type">Type</th><!-- 팝업구분 -->
+                        <th class="page">Page ID</th>
+                        <th class="state">State</th><!-- 진행, 수정, 완료, 삭제 -->
+                        <th class="date">00/00/00</th><!-- 완료일자 -->
+                        <th class="memo">memo</th><!-- 비고, 수정일자 -->
+                    </tr>
+                </thead>
+                <tbody id="CO" style="display: none;">
+                    <tr>
+                        <td class="folder">CO</td>
+                        <td class="dep1">공통</td>
+                        <td class="dep2">레이아웃</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0100</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">타이틀</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0200</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">버튼</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0300</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">테이블</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0400</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">얼럿팝업</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class="pa"></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0501</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">기본팝업</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class="po"></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0502</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">폼+컴포넌트</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0600</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1"></td>
+                        <td class="dep2">기타+컴포넌트</td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">CO0700</a>
+                        </td>
+                        <td class="state">
+                            <em class="ing">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                </tbody>
+                <tbody id="MA">
+                    <tr>
+                        <td class="folder">MA</td>
+                        <td class="dep1">프로젝트계획</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">MA01010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="modi">m</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo">로드맵 메뉴, IO/AO 선택박스 추가</td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1">프로젝트수행</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">MA02010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="comp">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1">운영</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">MA03010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="comp">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1">유지보수</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">MA04010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="comp">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                </tbody>
+                <tbody id="AD">
+                    <tr>
+                        <td class="folder">AD</td>
+                        <td class="dep1">어드민</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">AD01010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="comp">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                    <tr>
+                        <td class="folder"></td>
+                        <td class="dep1">얼럿팝업모음</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">AD02010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="comp">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                </tbody>
+                <tbody id="RO">
+                    <tr>
+                        <td class="folder">RO</td>
+                        <td class="dep1">로드맵</td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">RO01010000</a>
+                        </td>
+                        <td class="state">
+                            <em class="comp">-</em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                </tbody>
+
+                <tbody id="LO" style="display: none;">
+                    <tr>
+                        <td class="folder">EV</td>
+                        <td class="dep1"></td>
+                        <td class="dep2"></td>
+                        <td class="dep3"></td>
+                        <td class="dep4"></td>
+                        <td class="type">
+                            <em class=""></em>
+                            <!-- po : 기본팝업 / pp : 풀팝업 / pb : 바텀시트 / pt : 탑시트 / pa : 얼럿 -->
+                        </td>
+                        <td class="page">
+                            <a href="#" onclick="linkOpenFunc(this)" target="_blank">LO01010000</a>
+                        </td>
+                        <td class="state">
+                            <em class=""></em>
+                            <!-- ing  : 진행 / modi : 수정 / comp : 완료 / del  : 삭제 -->
+                        </td>
+                        <td class="date">00/00/00</td>
+                        <td class="memo"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            
+        })
+
+        const linkOpenFunc = obj => {
+            const tg = obj;
+            const name = tg.text;
+            const folder = name.slice(0, 2);
+            const src = `./html/${folder}/${name}.html`;
+            obj.href = src;
+        }
+    </script>
+</body>
+</html>
