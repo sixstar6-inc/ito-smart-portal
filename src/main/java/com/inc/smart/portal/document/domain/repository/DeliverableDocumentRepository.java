@@ -1,6 +1,6 @@
 package com.inc.smart.portal.document.domain.repository;
 
-import com.inc.smart.portal.document.domain.DeliverableDocument;
+import com.inc.smart.portal.document.domain.entity.DeliverableDocument;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Query;

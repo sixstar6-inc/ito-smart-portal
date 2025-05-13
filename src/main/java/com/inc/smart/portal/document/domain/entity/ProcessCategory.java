@@ -1,4 +1,4 @@
-package com.inc.smart.portal.document.domain;
+package com.inc.smart.portal.document.domain.entity;
 
 import com.inc.smart.portal.document.common.entity.NamedEntity;
 import com.inc.smart.portal.document.domain.enums.TopMenu;
@@ -33,5 +33,4 @@ public class ProcessCategory extends NamedEntity {
         this.iconClass = iconClass;
         this.topMenu = topMenu;
     }
-
 }

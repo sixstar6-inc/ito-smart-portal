@@ -1,6 +1,6 @@
 package com.inc.smart.portal.document.domain.repository;
 
-import com.inc.smart.portal.document.domain.ProcessCategory;
+import com.inc.smart.portal.document.domain.entity.ProcessCategory;
 import com.inc.smart.portal.document.domain.enums.TopMenu;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Transactional
 @SpringBootTest
 @ActiveProfiles("test")
 public class ProcessCategoryRepositoryTest {

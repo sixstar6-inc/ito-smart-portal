@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, width=device-width, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <title>[ DB Inc ] DB ITO 지식 포탈</title>
+    <link rel="stylesheet" href="/resources/css/selectric.css">
+    <link rel="stylesheet" href="/resources/css/ito.css">
+
+    <script src="/resources/js/jquery-3.7.1.min.js"></script>
+    <script src="/resources/js/jquery.selectric.min.js"></script>
+</head>
+<body>
+<div id="wrapper" class="wrapper">
+        <span id="skipNav" class="skip-nav">
+            <a href="#contents">본문 바로가기</a>
+            <a href="#gnb">대메뉴 바로가기</a>
+            <a href="#aside">부가메뉴 바로가기</a>
+        </span>
+    <header>
+        <h1><img src="../../resources/images/logo/logo-ito-adm.png" alt="[DB Inc. DB FIS] DB ITO 지식포탈" /></h1><!-- 240820 변경 -->
+        <nav id="gnb" class="gnb">
+            <ul>
+                <li><a href="/main?topMenuCode=1">프로젝트 계획</a></li>
+                <li><a href="/main?topMenuCode=3">운영</a></li>
+                <li><a href="/main?topMenuCode=4">유지보수</a></li>
+                <li><a href="/main?topMenuCode=2">프로젝트 수행</a></li>
+                <li class='on'><a href="/roadmap">로드맵</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="wrap" class="wrap">
+
+        <!-- contents -->
+        <div id="contents" class="contents">
+            <h3 class="content-title">
+                <i class="i-25 green-r-arrow"></i>로드맵(AO)
+                <ul class="color-info"><!-- 240903 추가 -->
+                    <li class="blue">지침서</li>
+                    <li class="yellow">절차서</li>
+                    <li class="red">산출물</li>
+                </ul>
+            </h3>
+
+            <div th:each="roadMapTop : ${results}" class="roadmap-wrapper">
+                <h4 th:text="${roadMapTop.topMenuTitle}">프로젝트 계획 [착수 PMO]</h4>
+                <div class="roadmap-wrap">
+                    <div th:each="roadMapSide : ${roadMapTop.sideList}"  class="items">
+                        <h5 th:text="${roadMapSide.sideMenuNm}" class="title">프로젝트 발의</h5>
+                        <div th:each="roadMapContent : ${roadMapSide.contentList}" class="details">
+                            <div class="area">
+                                <strong th:text="${roadMapContent.contentNm}">컨센서스 미팅</strong>
+                                <ul th:each="roadMapDocument : ${roadMapContent.documentList}"
+                                    th:classappend="${roadMapDocument.documentType == 'OUTPUT' ? 'listbox red' : (roadMapDocument.documentType == 'GUIDE' ? 'listbox blue' : 'listbox yellow')}">
+                                    <li>
+                                        <a th:text="${roadMapDocument.documentNm}"
+                                           href="javascript:void(0);"
+                                           target="_blank"
+                                           title="상세페이지 이동">현업요구사항정의서</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    $(document).ready(function(){
+        $('header').load('../../html/portal/AO/header.html'); // header html 로드
+        const listBox = document.querySelectorAll('.listbox');
+        listBox.forEach((el) => {
+            if(el.firstElementChild!=null){
+                el.closest('ul').style.display='block';
+            }
+        })
+    });
+</script>
+</body>
+</html>

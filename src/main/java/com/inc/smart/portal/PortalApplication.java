@@ -8,6 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * 도메인 구성
+ *    -> 프로세스 상위 단계 (Top Menu)
+ *    --> 프로세스 하위 단계 ( Process Category )
+ *    ----> 단계별 문서 유형 ( Deliverable Type)
+ *    ------> 문서 유형별 산출물 ( Deliverable Document)
+ */
 @SpringBootApplication
 public class PortalApplication {
 

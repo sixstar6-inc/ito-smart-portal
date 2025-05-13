@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<dialog th:fragment="registerpopup" id="dialog01" class="dialog-md" aria-labelledby="dialogTitle" aria-describedby="dialogGuide">
+    <form id="registerForm" action="" method="dialog">
+        <div class="header">
+            <button type="button" class="dialog-close" autofocus>닫기</button>
+            <h1 id="dialogTitle">등록하기</h1>
+        </div>
+        <div class="body">
+            <p id="dialogGuide" class="guide-text">
+                <strong>프로젝트 계획 > 사전단계</strong>
+                등록하실 내용을 입력해주세요.
+                <span class="under">모두 필수값입니다.</span>
+            </p>
+            <fieldset>
+                <legend>'문서등록'에 필요한 필수값 입력 영역입니다.</legend>
+                <div class="field">
+                    <label for="">* 세부 내용</label>
+                    <select name="contentId" id="contentId">
+                        <option value="">세부 내용을 선택해 주세요.</option>
+                        <option th:each="content : ${contents}"
+                                th:value="${content.id}"
+                                th:text="${content.title}"></option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">* 문서 구분</label>
+                    <select name="documentTypeName" id="documentTypeName">
+                        <option value="">문서 구분을 선택해 주세요.</option>
+                        <option th:each="entry : ${documentTypeMap}"
+                                th:value="${entry.key}"
+                                th:text="${entry.value}"></option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">* 문서 이름</label>
+                    <input id="new_title" name="new_title" type="text" placeholder="문서 이름을 입력해 주세요.">
+                </div>
+                <div class="field">
+                    <label for="">* 문서 링크</label>
+                    <input id="new_url" name="new_url" type="text" placeholder="문서 링크를 입력해 주세요.">
+                </div>
+            </fieldset>
+        </div>
+        <div class="footer">
+            <div class="btn-area">
+                <button type="button" class="btn normal dialog-close">취소</button>
+                <button type="submit" class="btn primary">확인</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            // AJAX 호출 설정
+            $('#registerForm').on('submit', function (e) {
+                e.preventDefault(); // 기본 폼 제출 방지
+
+                const formData = {
+                    contentId : $('#contentId').val(),
+                    documentTypeName : $('#documentTypeName').val(),
+                    title: $('#new_title').val(),
+                    url: $('#new_url').val()
+                };
+
+                $.ajax({
+                    url: '/api/documents/create', // 서버의 엔드포인트 URL
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function (response) {
+                        alert('등록이 완료되었습니다!');
+                        console.log(response);
+                        location.reload();
+                    },
+                    error: function (error) {
+                        alert('등록 중 문제가 발생했습니다.');
+                        console.error(error);
+                    },
+                });
+            });
+        });
+    </script>
+</dialog>
+<!-- //등록하기 팝업 -->
+</body>
+</html>

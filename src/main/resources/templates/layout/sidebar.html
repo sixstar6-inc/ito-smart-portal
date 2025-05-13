@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<ul th:fragment="menuList(menus, currentMenuId)">
+  <li th:each="menu : ${menus}"
+      th:classappend="${menu.id == currentMenuId} ? 'nav on' : ''">
+    <a th:href="@{/main(topMenuCode=${topMenuCode}, sideMenuId=${menu.id})}">
+      <i th:class="'i-aside ' + ${menu.iconClass}"></i>
+      [[${menu.name}]]
+
+    </a>
+  </li>
+</ul>
+</body>
+</html>

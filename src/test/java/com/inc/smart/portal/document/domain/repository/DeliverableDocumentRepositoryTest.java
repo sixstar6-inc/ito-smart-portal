@@ -1,10 +1,11 @@
 package com.inc.smart.portal.document.domain.repository;
 
-import com.inc.smart.portal.document.domain.DeliverableDocument;
-import com.inc.smart.portal.document.domain.DeliverableType;
-import com.inc.smart.portal.document.domain.ProcessCategory;
+import com.inc.smart.portal.document.domain.entity.DeliverableDocument;
+import com.inc.smart.portal.document.domain.entity.DeliverableType;
+import com.inc.smart.portal.document.domain.entity.ProcessCategory;
 import com.inc.smart.portal.document.domain.enums.DocumentType;
 import com.inc.smart.portal.document.domain.enums.TopMenu;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Transactional
 @SpringBootTest
 class DeliverableDocumentRepositoryTest {
 

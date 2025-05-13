@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table th:fragment="portaltable(contents)" class="table spacing">
+    <caption></caption>
+    <colgroup>
+        <col style="width: 115px;">
+        <col style="width: 18%;">
+        <col style="width: 18%;">
+        <col style="width: 28%;">
+        <col style="width: 28%;">
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col">세부내용</th>
+        <th scope="col">지침서</th>
+        <th scope="col">절차서</th>
+        <th scope="col">산출물</th>
+        <th scope="col">비고</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="content : ${contents}">
+        <!-- ContentR의 title -->
+        <th scope="row" th:text="${content.title}">과제구체화</th>
+        <td>
+            <!-- DocumentR의 DocumentType이 GUIDE인 경우에 title -->
+            <div th:each="doc : ${content.documents}"
+                 th:if="${doc.documentType == 'GUIDE'}">
+
+                <a th:if="${mode == 'portal'}" th:href="@{${doc.url}}" th:text="${doc.title}">ITP-20-00 프로젝트관리지침</a>
+                <a th:if="${mode == 'admin'}" th:onclick="openModal( 'dialog02', [[${doc}]], [[${content.title}]])" th:text="${doc.title}">ITP-20-00 프로젝트관리지침</a>
+            </div>
+        </td>
+        <td>
+            <!-- DocumentR의 DocumentType이 PROCEDURE인 경우에 title -->
+            <div th:each="doc : ${content.documents}"
+                 th:if="${doc.documentType == 'PROCEDURE'}">
+                <a th:if="${mode == 'portal'}" th:href="@{${doc.url}}" th:text="${doc.title}">장애관리절차서</a>
+                <a th:if="${mode == 'admin'}" th:onclick="openModal( 'dialog02', [[${doc}]], [[${content.title}]])" th:text="${doc.title}">장애관리절차서</a>
+            </div>
+        </td>
+        <td>
+            <!-- DocumentR의 DocumentType이 OUTPUT인 경우에 title -->
+            <div th:each="doc : ${content.documents}"
+                 th:if="${doc.documentType == 'OUTPUT'}">
+                <a th:if="${mode == 'portal'}" th:href="@{${doc.url}}" th:text="${doc.title}">이행계획서</a>
+                <a th:if="${mode == 'admin'}" th:onclick="openModal( 'dialog02', [[${doc}]], [[${content.title}]])" th:text="${doc.title}">이행계획서</a>
+            </div>
+        </td>
+        <td>
+            <!-- DocumentR의 description -->
+            <a href="#" th:text="${content.description}">ITSM 시스템에서 장애 등록함</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

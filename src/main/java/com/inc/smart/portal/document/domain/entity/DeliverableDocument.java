@@ -1,4 +1,4 @@
-package com.inc.smart.portal.document.domain;
+package com.inc.smart.portal.document.domain.entity;
 
 import com.inc.smart.portal.document.common.entity.NamedEntity;
 import com.inc.smart.portal.document.domain.enums.DocumentType;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/layout :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>[ DB Inc ] DB ITO 지식 포탈</title>
+</head>
+<body>
+<section>
+    <div id="contents" class="contents">
+        <h3 class="content-title">
+            <i class="i-25 green-r-arrow"></i>
+                [[${selectedMenu}]]
+            <div th:if="${mode == 'admin'}" class="btn-wrap">
+                <button type="button" class="btn primary" onclick="openRegisterModal('dialog01')">등록</button>
+            </div>
+        </h3>
+        <div th:replace="~{fragments/portaltable :: portaltable(${contents})}"></div>
+        <div th:replace="~{fragments/registerpopup :: registerpopup}"></div>
+        <div th:replace="~{fragments/modifypopup :: modifypopup}"></div>
+    </div>
+</section>
+</body>
+</html>

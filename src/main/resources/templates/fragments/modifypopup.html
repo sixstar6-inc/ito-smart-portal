@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<dialog th:fragment="modifypopup" id="dialog02" class="dialog-md" aria-labelledby="dialogTitle"
+        aria-describedby="dialogGuide">
+    <form id="updateForm" action="" method="dialog">
+        <input type="hidden" id="documentId" name="documentId" value="">
+        <div class="header">
+            <button type="button" class="dialog-close" autofocus>닫기</button>
+            <h1 id="dialogTitle">수정&middot;삭제하기</h1>
+        </div>
+        <div class="body">
+            <p id="dialogGuide" class="guide-text">
+                <strong>[[${topMenuName}]] > [[${selectedMenu}]]</strong>
+                수정&middot;삭제 하시겠습니까?
+                <span class="under">모두 필수값입니다.</span>
+            </p>
+            <fieldset>
+                <legend>'문서등록'에 필요한 필수값 입력 영역입니다.</legend>
+                <div class="field">´
+                    <label for="">* 세부 내용</label>
+                    <select name="" id="contentIdForModify"  disabled><!-- disabled -->
+                        <!-- option selected -->
+                        <option value="1" selected></option>
+                        ´
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">* 문서 구분</label>
+                    <select name="" id="documentTypeId" disabled><!-- disabled -->
+                        <!-- option selected -->
+                        <option value="">문서 구분을 선택해 주세요.</option>
+                        <option value="1" selected>사전단계</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="">* 문서 이름</label>
+                    <input id="title" name="title" type="text" placeholder="문서 이름을 입력해 주세요.">
+                </div>
+                <div class="field">
+                    <label for="">* 문서 링크</label>
+                    <input id="url" name="url" type="text" placeholder="문서 링크를 입력해 주세요.">
+                </div>
+            </fieldset>
+        </div>
+        <div class="footer">
+            <div class="btn-area">
+                <button type="button" class="btn weightly dialog-close">삭제</button>
+                <button type="submit" class="btn primary">수정</button>
+            </div>
+        </div>
+    </form>
+    <script>
+$(document).ready(function () {
+    // AJAX 호출 설정
+    $('#updateForm').on('submit', function (e) {
+        e.preventDefault(); // 기본 폼 제출 방지
+
+        const formData = {
+            documentId: $('#documentId').val(),
+            title: $('#title').val(),
+            url: $('#url').val()
+        };
+
+        $.ajax({
+            url: '/api/documents/modify', // 서버의 엔드포인트 URL
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function (response) {
+                alert('수정이 완료되었습니다!');
+                console.log(response);
+                location.reload();
+            },
+            error: function (error) {
+                alert('수정 중 문제가 발생했습니다.');
+                console.error(error);
+            },
+        });
+    });
+
+    $('.btn.weightly.dialog-close').on('click', function () {
+        const documentId = $('#documentId').val();
+
+        if (!documentId) {
+            alert('삭제할 문서 ID가 없습니다.');
+            return;
+        }
+
+        // 삭제 확인 메시지
+        if (!confirm('정말로 삭제하시겠습니까?')) {
+            return;
+        }
+
+        // AJAX 요청
+        $.ajax({
+            url: '/api/documents/delete', // 서버의 삭제 엔드포인트 URL
+            type: 'DELETE',
+            contentType: 'application/json',
+            data: JSON.stringify({ documentId: documentId }),
+            success: function (response) {
+                alert('문서가 삭제되었습니다.');
+                console.log(response);
+                location.reload(); // 페이지 새로 고침
+            },
+            error: function (error) {
+                alert('문서 삭제 중 문제가 발생했습니다.');
+                console.error(error);
+            },
+        });
+    });
+});
+
+
+    </script>
+</dialog>
+</body>
+</html>
